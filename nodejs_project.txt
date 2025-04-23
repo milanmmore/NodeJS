@@ -1,0 +1,64 @@
+Creating a project in Node.js is simple and involves several steps. Here's a guide to setting up a basic Node.js project:
+Step 1: Install Node.js
+Before starting, make sure Node.js is installed on your system.
+- Download and install it from Node.js official website.
+- After installation, check the version:node -v
+npm -v
+
+
+Step 2: Create a Project Folder
+- Open your terminal or command prompt.
+- Create a new folder for the project:mkdir my-node-project
+cd my-node-project
+
+
+Step 3: Initialize the Project
+Run the following command inside the project folder:
+npm init -y
+
+
+- This creates a package.json file that manages dependencies and project metadata.
+
+Step 4: Install Required Dependencies
+If you need any libraries, install them using npm:
+npm install express
+
+
+For development tools, use the --save-dev flag:
+npm install nodemon --save-dev
+
+
+Step 5: Create an Entry File
+- Create a new file called index.js:touch index.js
+
+- Add a simple server using Express.js:const express = require("express");
+const app = express();
+const PORT = 3000;
+
+app.get("/", (req, res) => {
+  res.send("Hello, Node.js!");
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
+
+Step 6: Run the Project
+Start the server using Node.js:
+node index.js
+
+
+Or use nodemon for automatic reloading:
+npx nodemon index.js
+
+
+Step 7: Test Your Server
+- Open a browser and visit: http://localhost:3000
+- You should see "Hello, Node.js!" displayed.
+
+Step 8: Add More Features
+You can now: ✅ Add routes, middleware, and database connectivity
+✅ Create REST APIs with Express
+✅ Deploy your project using services like Heroku or Vercel
+Would you like me to guide you through database integration or API development next? 😊

@@ -1,0 +1,59 @@
+Here’s a list of commonly asked Node.js interview questions to help you prepare:
+
+Basic Questions
+- What is Node.js?- Node.js is an open-source, cross-platform JavaScript runtime environment that executes JavaScript code outside a browser. It uses Chrome's V8 engine.
+
+- What are the key features of Node.js?- Asynchronous and Event-Driven
+- Single-Threaded but Scalable
+- Non-blocking I/O
+- Cross-platform compatibility
+
+- What is the difference between setImmediate() and process.nextTick()?- setImmediate(): Executes a callback after the current event loop.
+- process.nextTick(): Executes a callback before the next event loop begins.
+
+- What is the purpose of npm?- npm (Node Package Manager) is used to manage packages and dependencies in Node.js projects.
+
+
+
+Intermediate Questions
+- What is the Event Loop in Node.js?- The Event Loop is a mechanism that handles asynchronous operations by processing callbacks in a single-threaded, non-blocking manner.
+
+- What are Streams in Node.js?- Streams are objects that enable reading or writing data in chunks. Types include:- Readable Streams
+- Writable Streams
+- Duplex Streams
+- Transform Streams
+
+
+- What is middleware in Express.js?- Middleware functions are functions that execute during the lifecycle of a request to the server. They can modify the request/response objects or terminate the request-response cycle.
+
+- How does Node.js handle concurrency?- Node.js uses an event-driven, non-blocking I/O model with the help of the Event Loop and Worker Threads for concurrency.
+
+
+
+Advanced Questions
+- What is clustering in Node.js?- Clustering allows you to create multiple instances of a Node.js application to utilize multi-core systems and handle more requests.
+
+- What is the difference between require and import?- require: CommonJS module system, used in Node.js.
+- import: ES6 module system, used in modern JavaScript.
+
+- How do you handle errors in Node.js?- Using try...catch blocks for synchronous code.
+- Using .catch() or async/await with try...catch for asynchronous code.
+
+- What is the purpose of buffer in Node.js?- Buffer is used to handle binary data directly, especially when dealing with streams or file systems.
+
+
+
+Practical Questions
+- How do you secure a Node.js application?- Use HTTPS
+- Validate user input
+- Sanitize data to prevent SQL injection
+- Use environment variables for sensitive data
+- Implement rate-limiting and authentication
+
+- How do you implement caching in Node.js?- Use libraries like redis or memory-cache to store frequently accessed data.
+
+- How do you connect to a database in Node.js?- Use libraries like mongoose for MongoDB or sequelize for SQL databases.
+
+
+
+Would you like me to dive deeper into any of these topics or provide sample code for specific questions? 

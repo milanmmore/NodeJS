@@ -1,0 +1,90 @@
+Great! Let's integrate a database into your Node.js project. You can use MongoDB (NoSQL) or MySQL/PostgreSQL (SQL), depending on your needs. Here's how to set up a MongoDB database using Mongoose (for simplicity).
+
+Step 1: Install MongoDB & Mongoose
+First, install MongoDB and the Mongoose library:
+npm install mongoose
+
+
+
+Step 2: Connect to MongoDB
+Create a db.js file and set up the database connection:
+const mongoose = require("mongoose");
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect("mongodb://127.0.0.1:27017/mydatabase", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log("MongoDB connected successfully!");
+  } catch (error) {
+    console.error("MongoDB connection failed:", error);
+  }
+};
+
+module.exports = connectDB;
+
+
+
+Step 3: Define a Schema & Model
+In a new models/User.js file, create a User model:
+const mongoose = require("mongoose");
+
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  age: Number
+});
+
+const User = mongoose.model("User", userSchema);
+
+module.exports = User;
+
+
+
+Step 4: Use Database in API
+Modify index.js to connect to the database and create an API to add users:
+const express = require("express");
+const connectDB = require("./db");
+const User = require("./models/User");
+
+const app = express();
+app.use(express.json());
+
+connectDB();
+
+// Add a new user
+app.post("/users", async (req, res) => {
+  try {
+    const user = new User(req.body);
+    await user.save();
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get all users
+app.get("/users", async (req, res) => {
+  const users = await User.find();
+  res.json(users);
+});
+
+app.listen(3000, () => console.log("Server running on http://localhost:3000"));
+
+
+
+Step 5: Test API
+- Start the server:node index.js
+
+- Use Postman or cURL to test:- Add a user (POST /users):{
+  "name": "Milan",
+  "email": "milan@example.com",
+  "age": 25
+}
+
+- Get all users (GET /users).
+
+
+
+This sets up a basic API with MongoDB! Do you want help with authentication, validation, or integrating another database like MySQL? 😊
